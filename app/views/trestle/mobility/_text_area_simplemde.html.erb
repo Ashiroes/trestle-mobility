@@ -8,17 +8,19 @@
         <li><a href="#<%= "#{field_name}_#{locale}" %>" class="dropdown-item" data-locale="<%= locale %>"><%= "#{EmojiFlag.new(locale)} #{locale.upcase}" %></a></li>
       <% end %>
     </ul>
-    <% locales.each do |locale, index| %>
-      <%=
-        form.raw_text_area(
-          "#{field_name}_#{locale}",
-          options.merge(
-            class: "#{custom_class} form-control mobility-field#{locale == selected ? '' : ' hidden'}",
-            placeholder: "#{label} (#{locale.upcase})",
-            data: { locale: locale }
+    <% locales.each do |locale| %>
+      <div class="w-100 mobility-field <%= locale == selected ? '' : ' hidden'%>", data-locale="<%=locale%>" >
+        <%=
+          form.raw_text_area(
+            "#{field_name}_#{locale}",
+            options.merge(
+              class: "simplemde form-control",
+              placeholder: "#{label} (#{locale.upcase})",
+              data: { locale: locale }
+            )
           )
-        )
-      %>
+        %>
+      </div>
     <% end %>
   </div>
 

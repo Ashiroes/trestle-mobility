@@ -1,9 +1,9 @@
 module Trestle
   module Mobility
     module Fields
-      class TextArea < Trestle::Form::Field
+      class TextAreaSimplemde < Trestle::Form::Field
         def defaults
-          super.merge(rows: 5 || options[:rows])
+          super.merge(rows: 20 || options[:rows])
         end
 
         def field
@@ -13,7 +13,7 @@ module Trestle
           selected = options[:selected] || Trestle.config.mobility.selected.call || locales.first
           deepl_query_params =  options[:deepl_query_params] || {}
 
-          @template.render partial: "trestle/mobility/text_area",
+          @template.render partial: "trestle/mobility/text_area_simplemde",
                            locals: {
                              options: options,
                              field_name: name,

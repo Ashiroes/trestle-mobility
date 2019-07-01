@@ -8,6 +8,7 @@ Trestle.init(function(e, root) {
   }
 
   var Mobility = function (element) {
+    console.log(this.$element)
     this.$element = $(element);
     this.$inputFields = this.$element.find('.mobility-field');
     this.$dropdownItems = this.$element.find('.dropdown-item');
